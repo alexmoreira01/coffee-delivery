@@ -104,27 +104,38 @@ export const ContainerCoffees = styled.main`
 `;
 
 export const ListCoffes = styled.div`
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
   gap: 2rem;
+  row-gap: 2.5rem;
 
   margin-top: 3.4rem;
 `;
 
 export const CoffeeItem = styled.div`
-  width: 16rem;
-  height: 19.4rem;
+  display: flex;
+  
+  width: 100%;
+  
+  padding: 0px 1.25rem;
+  padding-top: 0px;
 
-  /* position: absolute; */
-
-  padding: 0px 20px;
-
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
   border-radius: 6px 36px;
 
   background: ${(props) => props.theme['base-card']};
 
-  img {}
+  img {
+    width: 7.5rem;
+    height: 7.5rem;
+
+    margin-top: -1.25rem;
+  }
 
   h1{
     display: flex;
