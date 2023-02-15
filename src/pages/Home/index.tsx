@@ -73,7 +73,7 @@ export function Home() {
         <ListCoffes>
           {coffees.map(coffee => (
             <CoffeeItem key={coffee.id}>
-              <img src={coffee.img} alt="" />
+              <img src={`/coffees/${coffee.img}`} alt="" />
 
               <span>{coffee.model[0]}</span>
 
