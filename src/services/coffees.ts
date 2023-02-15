@@ -1,5 +1,3 @@
-import logo from '../../public/coffees'
-
 export const coffeesJson = [
     {id:1, name:'Expresso Tradicional', img:'../../public/coffees/Image.svg', price:9.90, model:['tradicional'], description:'O tradicional café feito com água quente e grãos moídos'},
     {id:2, name:'Expresso Americano', img:'../../public/coffees/Image-2.svg', price:9.90, model:['tradicional'], description:'Expresso diluído, menos intenso que o tradicional'},
