@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderContainer = styled.header`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,32 +10,80 @@ export const HeaderContainer = styled.header`
 
   nav {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 0.75rem;
   }
 `
 
-const BaseButton = styled.button`
+interface HeaderButtonProps {
+  variant: "purple" | "yellow";
+}
 
+export const HeaderButton = styled.button<HeaderButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
-  padding: 0.5rem;
+  height: 2.3rem;
+  min-width: 2.3rem;
 
-  border: 0;
+  padding: 0 0.5rem;
+
+  border: none;
   border-radius: 6px;
+
+  font-size: ${(props) => props.theme.textSizes["text-regular-s"]};
+
+  background-color: ${(props) => props.theme.colors[`${props.variant}-light`]};
+  color: ${(props) => props.variant === "purple" ? 
+    props.theme.colors[`${props.variant}`] : 
+    props.theme.colors[`${props.variant}-dark`]};
+
+  /* 
+    Outros metodos
+    ${({ variant, theme }) => css`
+      background: ${theme.colors[`${variant}-light`]};
+      color: ${theme.colors[`${variant}-dark`]};
+    `} 
+    
+    ${({ variant, theme }) => 
+      variant === "purple" &&
+      css`
+        svg {
+          color: ${theme.colors[`${variant}`]};
+        }
+    `}
+  */
 `;
 
-export const CartButton = styled(BaseButton)`
-  background-color: ${(props) => props.theme["yellow-light"]};
 
-  color: ${(props) => props.theme["yellow-dark"]};
-`;
+// const BaseButton = styled.button`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   position: relative;
 
-export const LocationButton = styled(BaseButton)`
-  background-color: ${(props) => props.theme["purple-light"]};
+//   height: 2.3rem;
+//   min-width: 2.3rem;
 
-  gap: 4px;
+//   padding: 0 0.5rem;
 
-  color: ${(props) => props.theme["purple-dark"]};
-`;
+//   border: none;
+//   border-radius: 6px;
+
+//   font-size: ${(props) => props.theme.textSizes["text-regular-s"]};
+// `;
+
+// export const CartButton = styled(BaseButton)`
+//   background-color: ${(props) => props.theme.colors["yellow-light"]};
+
+//   color: ${(props) => props.theme.colors["yellow-dark"]};
+// `;
+
+// export const LocationButton = styled(BaseButton)`
+//   gap: 4px;
+
+//   background-color: ${(props) => props.theme.colors["purple-light"]};
+//   color: ${(props) => props.theme.colors["purple-dark"]};
+// `;

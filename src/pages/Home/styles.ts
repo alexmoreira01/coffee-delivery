@@ -12,7 +12,7 @@ export const BoxOne = styled.div`
   margin-bottom: 4.1rem;
 
   header {
-    color: ${(props) => props.theme["base-title"]};
+    color: ${(props) => props.theme.colors["base-title"]};
     font-size: 3rem;
     font-weight: bold;
     width: 36.7rem;
@@ -23,7 +23,7 @@ export const BoxOne = styled.div`
   }
 
   p {
-    color: ${(props) => props.theme["base-subtitle"]};
+    color: ${(props) => props.theme.colors["base-subtitle"]};
 
     font-size: 20px;
     font-weight: 400;
@@ -51,7 +51,7 @@ const BaseInfo = styled.div`
   font-weight: 400;
   line-height: 20.8px;
 
-  color: ${(props) => props.theme['base-text']};
+  color: ${(props) => props.theme.colors['base-text']};
 
   div {
     display: flex;
@@ -62,31 +62,31 @@ const BaseInfo = styled.div`
     padding: 8px;
     border-radius: 999px;
     
-    color: ${(props) => props.theme['background']};
+    color: ${(props) => props.theme.colors['background']};
   }
 `;
 
 export const Info1 = styled(BaseInfo)`
   div {
-    background: ${(props) => props.theme['yellow-dark']};
+    background: ${(props) => props.theme.colors['yellow-dark']};
   }
 `;
 
 export const Info2 = styled(BaseInfo)`
   div {
-    background: ${(props) => props.theme['base-text']};
+    background: ${(props) => props.theme.colors['base-text']};
   }
 `;
 
 export const Info3 = styled(BaseInfo)`
   div {
-    background: ${(props) => props.theme['yellow']};
+    background: ${(props) => props.theme.colors['yellow']};
   }
 `;
 
 export const Info4 = styled(BaseInfo)`
   div {
-    background: ${(props) => props.theme['purple']};
+    background: ${(props) => props.theme.colors['purple']};
   }
 `;
 
@@ -98,7 +98,7 @@ export const ContainerCoffees = styled.main`
     font-weight: bold;
     line-height: 41.6px;
     
-    color: ${(props) => props.theme['base-subtitle']};
+    color: ${(props) => props.theme.colors['base-subtitle']};
 
   }
 `;
@@ -128,7 +128,7 @@ export const CoffeeItem = styled.div`
   
   border-radius: 6px 36px;
 
-  background: ${(props) => props.theme['base-card']};
+  background: ${(props) => props.theme.colors['base-card']};
 
   img {
     width: 7.5rem;
@@ -151,7 +151,7 @@ export const CoffeeItem = styled.div`
     font-weight: 700;
     font-family: 'Baloo 2', cursive;
     
-    color: ${(props) => props.theme['base-subtitle']};
+    color: ${(props) => props.theme.colors['base-subtitle']};
   }
 
   p {
@@ -165,7 +165,7 @@ export const CoffeeItem = styled.div`
     letter-spacing: 0em;
     text-align: center;
 
-    color: ${(props) => props.theme['base-label']};
+    color: ${(props) => props.theme.colors['base-label']};
 
 
   }
