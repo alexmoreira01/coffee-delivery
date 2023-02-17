@@ -137,6 +137,10 @@ export const CoffeeItem = styled.div`
     margin-top: -1.25rem;
   }
 
+  span {
+
+  }
+
   h1{
     display: flex;
     align-items: center;
@@ -147,7 +151,7 @@ export const CoffeeItem = styled.div`
 
     line-height: 26px;
     
-    font-size: 1.3rem;
+    font-size: ${(props) => props.theme.textSizes['title-title-s']};
     font-weight: 700;
     font-family: 'Baloo 2', cursive;
     
@@ -156,8 +160,11 @@ export const CoffeeItem = styled.div`
 
   p {
     margin-top: 8px;
+    margin-bottom: 33px;
 
     font-family: 'Roboto', sans-serif;
+    font-size: ${(props) => props.theme.textSizes['text-regular-s']};
+
 
     font-size: 14px;
     font-weight: 400;
@@ -168,5 +175,30 @@ export const CoffeeItem = styled.div`
     color: ${(props) => props.theme.colors['base-label']};
 
 
+  }
+`;
+
+export const Tag = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+
+  flex-wrap: wrap;
+
+  span {
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+
+    font-size: ${(props) => props.theme.textSizes['components-tag']};
+    font-weight: bold;
+
+    background-color: ${(props) => props.theme.colors['yellow-light']};
+    color: ${(props) => props.theme.colors['yellow-dark']};
   }
 `;

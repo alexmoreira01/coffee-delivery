@@ -1,4 +1,4 @@
-import { BoxOne, BoxTwo, CoffeeItem, ContainerCoffees, ContainerIntro, Info1, Info2, Info3, Info4, ListCoffes } from "./styles";
+import { BoxOne, BoxTwo, CoffeeItem, ContainerCoffees, ContainerIntro, Info1, Info2, Info3, Info4, ListCoffes, Tag } from "./styles";
 
 import CoffeDelivery from '../../assets/CoffeDelivery.svg'
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
@@ -75,11 +75,16 @@ export function Home() {
             <CoffeeItem key={coffee.id}>
               <img src={`/coffees/${coffee.img}`} alt="" />
 
-              <span>{coffee.model[0]}</span>
+              <Tag>
+                <span>{coffee.model[0].toUpperCase()}</span>
+                {coffee.model[1] ? <span>{coffee.model[1].toUpperCase()}</span> : '' }
+              </Tag>  
 
               <h1>{coffee.name}</h1>
 
               <p>{coffee.description}</p>
+
+              <span>R$ {coffee.price}</span>
             </CoffeeItem>
           ))}
         </ListCoffes>
