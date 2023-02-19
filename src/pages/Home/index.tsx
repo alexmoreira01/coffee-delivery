@@ -1,10 +1,10 @@
-import { BoxOne, BoxTwo, CoffeeItem, ContainerCoffees, ContainerIntro, Info1, Info2, Info3, Info4, ListCoffes, Tag } from "./styles";
+import { CoffeeItem, ContainerCoffees, ContainerHome, ListCoffes, Tag } from "./styles";
 
-import CoffeDelivery from '../../assets/CoffeDelivery.svg'
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import { useState } from "react";
 
 import { coffeesJson } from "../../services/coffees";
+import { Intro } from "./components/Intro";
 
 interface Coffee {
   id: number;
@@ -22,50 +22,9 @@ export function Home() {
   console.log(coffees)
 
   return (
-    <>
-      <ContainerIntro>
-
-        <div>
-
-          <BoxOne>
-            <header>Encontre o café perfeito para qualquer hora do dia</header>
-
-            <p>Com o Coffee Delivery você recebe seu café onde estiver, a <br /> qualquer hora</p>
-          </BoxOne>
-
-          <BoxTwo>
-            
-            <Info1>
-              <div>
-                <ShoppingCart size={16} weight="fill" />
-              </div>
-              Compra simples e segura
-            </Info1>
-
-            <Info2>
-              <div>
-                <Timer size={16} weight="fill" />
-              </div>
-              Embalagem mantém o café intacto
-            </Info2>
-            <Info3>
-              <div>
-                <Package size={16}  weight="fill" />
-              </div>
-              Entrega rápida e rastreada
-            </Info3>
-            <Info4>
-              <div>
-              <Coffee size={16} weight="fill" />
-              </div>
-              O café chega fresquinho até você
-            </Info4>
-
-          </BoxTwo>
-
-        </div>
-        <img src={CoffeDelivery} alt="" width={476} height={360} />
-      </ContainerIntro>
+    <ContainerHome>
+      
+      <Intro/>
 
       <ContainerCoffees>
         <header>Nossos cafés</header>
@@ -91,7 +50,7 @@ export function Home() {
 
       </ContainerCoffees>
 
-    </>
+    </ContainerHome>
 
   )
 }

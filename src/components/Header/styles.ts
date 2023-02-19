@@ -6,7 +6,12 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  padding: 2rem 0rem;
+  /* Trocado do default Layout */
+  max-width: 90rem;
+  padding: 2rem 10rem;
+  margin: auto auto;
+
+  /* padding: 2rem 0rem; */
 
   nav {
     display: flex;

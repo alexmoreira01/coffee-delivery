@@ -1,97 +1,21 @@
 import styled from "styled-components";
 
-export const ContainerIntro = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  margin-bottom: 5.8rem;
-  padding: 4rem 0rem;
-`;
-
-export const BoxOne = styled.div`
-  margin-bottom: 4.1rem;
-
-  header {
-    color: ${(props) => props.theme.colors["base-title"]};
-    font-size: 3rem;
-    font-weight: bold;
-    width: 36.7rem;
-
-    line-height: 1.3;
-
-    margin-bottom: 1rem;
-  }
-
-  p {
-    color: ${(props) => props.theme.colors["base-subtitle"]};
-
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 26px;
-  }
-`;
-
-export const BoxTwo = styled.div`
-  display: grid;
-  grid-template-columns: 231px 294px;
-
-  gap: 20px 40px;
+export const ContainerHome = styled.div`
+  margin-bottom: 9.8rem;
 
 `;
 
-const BaseInfo = styled.div`
-  display: flex;
-  align-content: center;
-  align-items: center;
 
-  gap: 12px;
-  height: 2rem;
 
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 20.8px;
 
-  color: ${(props) => props.theme.colors['base-text']};
-
-  div {
-    display: flex;
-  
-    align-items: center;
-    align-content: center;
-
-    padding: 8px;
-    border-radius: 999px;
-    
-    color: ${(props) => props.theme.colors['background']};
-  }
-`;
-
-export const Info1 = styled(BaseInfo)`
-  div {
-    background: ${(props) => props.theme.colors['yellow-dark']};
-  }
-`;
-
-export const Info2 = styled(BaseInfo)`
-  div {
-    background: ${(props) => props.theme.colors['base-text']};
-  }
-`;
-
-export const Info3 = styled(BaseInfo)`
-  div {
-    background: ${(props) => props.theme.colors['yellow']};
-  }
-`;
-
-export const Info4 = styled(BaseInfo)`
-  div {
-    background: ${(props) => props.theme.colors['purple']};
-  }
-`;
 
 export const ContainerCoffees = styled.main`
   gap: 3.4rem 0rem;
+
+  /* Trocado do default Layout */
+  max-width: 90rem;
+  padding: 0rem 10rem;
+  margin: auto auto;
 
   header {
     font-size: 2rem;
