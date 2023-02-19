@@ -15,7 +15,9 @@ export const ContainerIntro = styled.section`
   `};
   background-size: cover;
 
- 
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
 `;
 
 export const Content = styled.div`
@@ -26,93 +28,44 @@ export const Content = styled.div`
 
   display: flex;
   justify-content: space-between;
+  
   /* padding: 4rem 0rem; */
-
-
   /* margin-bottom: 5.8rem; */
 `;
 
-export const Box = styled.div`
-`;
-
 export const BoxOne = styled.div`
-  margin-bottom: 4.1rem;
+  margin-bottom: 4.125rem;
 
-  header {
+  h1 {
     color: ${(props) => props.theme.colors["base-title"]};
     font-size: 3rem;
     font-weight: bold;
     width: 36.7rem;
+
+    font-size: ${(props) => props.theme.textSizes["title-title-xl"]};
+    font-family: ${(props) => props.theme.fonts.title};
 
     line-height: 1.3;
 
     margin-bottom: 1rem;
   }
 
-  p {
+  h3 {
     color: ${(props) => props.theme.colors["base-subtitle"]};
 
-    font-size: 20px;
+    font-size: ${(props) => props.theme.textSizes["text-regular-l"]};
     font-weight: 400;
     line-height: 26px;
   }
 `;
 
 export const BoxTwo = styled.div`
+  width: 100%;
   display: grid;
-  grid-template-columns: 231px 294px;
-
-  gap: 20px 40px;
-
-`;
-
-const BaseInfo = styled.div`
-  display: flex;
-  align-content: center;
-  align-items: center;
-
-  gap: 12px;
-  height: 2rem;
-
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 20.8px;
-
-  color: ${(props) => props.theme.colors['base-text']};
-
-  div {
-    display: flex;
   
-    align-items: center;
-    align-content: center;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1.25rem;
 
-    padding: 8px;
-    border-radius: 999px;
-    
-    color: ${(props) => props.theme.colors['background']};
-  }
-`;
-
-export const Info1 = styled(BaseInfo)`
-  div {
-    background: ${(props) => props.theme.colors['yellow-dark']};
-  }
-`;
-
-export const Info2 = styled(BaseInfo)`
-  div {
-    background: ${(props) => props.theme.colors['base-text']};
-  }
-`;
-
-export const Info3 = styled(BaseInfo)`
-  div {
-    background: ${(props) => props.theme.colors['yellow']};
-  }
-`;
-
-export const Info4 = styled(BaseInfo)`
-  div {
-    background: ${(props) => props.theme.colors['purple']};
-  }
+  /* grid-template-columns: 231px 294px; */
+  /* gap: 20px 40px; */
 `;

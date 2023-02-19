@@ -1,53 +1,51 @@
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
-import { ContainerIntro, Info1, Info2, Info3, Info4, BoxOne, BoxTwo, Content, Box } from "./style";
-
 import CoffeDelivery from '../../../../assets/CoffeDelivery.svg'
 
+import { Info } from "../../../../components/Infos";
+
+import { ContainerIntro, BoxOne, BoxTwo, Content } from "./style";
+import { useTheme } from "styled-components";
+
 export function Intro() {
+  const { colors } = useTheme();
+
   return (
     <ContainerIntro>
-
       <Content>
-
-        <Box>
-
-
+        <div>
           <BoxOne>
-            <header>Encontre o café perfeito para qualquer hora do dia</header>
+            <h1>Encontre o café perfeito para qualquer hora do dia</h1>
 
-            <p>Com o Coffee Delivery você recebe seu café onde estiver, a <br /> qualquer hora</p>
+            <h3>Com o Coffee Delivery você recebe seu café onde estiver, a <br /> qualquer hora</h3>
           </BoxOne>
 
           <BoxTwo>
 
-            <Info1>
-              <div>
-                <ShoppingCart size={16} weight="fill" />
-              </div>
-              Compra simples e segura
-            </Info1>
-
-            <Info2>
-              <div>
-                <Timer size={16} weight="fill" />
-              </div>
-              Embalagem mantém o café intacto
-            </Info2>
-            <Info3>
-              <div>
-                <Package size={16} weight="fill" />
-              </div>
-              Entrega rápida e rastreada
-            </Info3>
-            <Info4>
-              <div>
-                <Coffee size={16} weight="fill" />
-              </div>
-              O café chega fresquinho até você
-            </Info4>
-
+            <Info
+              icon={<ShoppingCart size={16} weight="fill" />}
+              text={"Compra simples e segura"}
+              iconColor={colors["yellow-dark"]}
+            />
+              
+            <Info
+              icon={<Timer size={16} weight="fill" />}
+              text={"Embalagem mantém o café intacto"}
+              iconColor={colors["base-text"]}
+            />
+              
+            <Info
+              icon={<Package size={16} weight="fill" />}
+              text={"Entrega rápida e rastreada"}
+              iconColor={colors["yellow"]}
+            />
+              
+            <Info
+              icon={<Coffee size={16} weight="fill" />}
+              text={"O café chega fresquinho até você"}
+              iconColor={colors["purple"]}
+            />
           </BoxTwo>
-        </Box>
+        </div>
 
         <img src={CoffeDelivery} alt="" width={476} height={360} />
       </Content>
