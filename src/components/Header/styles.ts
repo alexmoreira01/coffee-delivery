@@ -2,14 +2,22 @@ import styled, { css } from "styled-components";
 
 export const HeaderContainer = styled.header`
   width: 100%;
+  height: 6.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
 
   /* Trocado do default Layout */
   max-width: 90rem;
   padding: 2rem 10rem;
   margin: auto auto;
+
+  background: ${(props) => props.theme.colors["background"]};
 
   /* padding: 2rem 0rem; */
 
