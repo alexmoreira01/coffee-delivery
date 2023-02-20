@@ -26,19 +26,19 @@ export function Intro() {
               text={"Compra simples e segura"}
               iconColor={colors["yellow-dark"]}
             />
-              
+
             <Info
               icon={<Timer size={16} weight="fill" />}
               text={"Embalagem mantém o café intacto"}
               iconColor={colors["base-text"]}
             />
-              
+
             <Info
               icon={<Package size={16} weight="fill" />}
               text={"Entrega rápida e rastreada"}
               iconColor={colors["yellow"]}
             />
-              
+
             <Info
               icon={<Coffee size={16} weight="fill" />}
               text={"O café chega fresquinho até você"}
