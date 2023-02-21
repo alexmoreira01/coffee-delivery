@@ -4,10 +4,10 @@ import { ContainerOrder } from "./styles";
 
 export function Order() {
   return (
-    <ContainerOrder>
+    <ContainerOrder className="divContainer">
       <Orderform />
 
-      <h2>a</h2>
+
 
     </ContainerOrder>
   )

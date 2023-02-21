@@ -7,23 +7,26 @@ import { NavLink } from "react-router-dom";
 export function Header() {
   return (
     <HeaderContainer>
-      <NavLink to="/" title="Home">
-        <img src={Logo} alt="" />
-      </NavLink>
+      <div className="divContainer">
 
-      <nav>
-        <HeaderButton variant="purple" >
-          <MapPin size={24} weight="fill" />
-          Porto Alegre, RS
-        </HeaderButton>
-
-        <NavLink to="/cart" title="Carrinho">
-
-          <HeaderButton variant="yellow">
-            <ShoppingCart size={24} weight="fill" />
-          </HeaderButton>
+        <NavLink to="/" title="Home">
+          <img src={Logo} alt="" />
         </NavLink>
-      </nav>
+
+        <nav>
+          <HeaderButton variant="purple" >
+            <MapPin size={24} weight="fill" />
+            Porto Alegre, RS
+          </HeaderButton>
+
+          <NavLink to="/cart" title="Carrinho">
+
+            <HeaderButton variant="yellow">
+              <ShoppingCart size={24} weight="fill" />
+            </HeaderButton>
+          </NavLink>
+        </nav>
+      </div>
     </HeaderContainer>
   )
 }

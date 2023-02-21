@@ -4,9 +4,9 @@ export const ContainerCoffees = styled.main`
   gap: 3.4rem 0rem;
 
   /* Trocado do default Layout */
-  max-width: 90rem;
-  padding: 0rem 10rem;
-  margin: auto auto;
+  /* max-width: 90rem; */
+  /* padding: 0rem 10rem; */
+  /* margin: auto auto; */
 
   h1 {
     font-size: ${(props) => props.theme.textSizes["title-title-l"]};

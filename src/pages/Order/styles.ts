@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const ContainerOrder = styled.form`
     /* Trocado do default Layout */
-    max-width: 90rem;
+    /* max-width: 90rem;
     padding: 0rem 10rem;
-    margin: auto auto;
+    margin: auto auto; */
 
     display: flex;
     justify-content: space-between;

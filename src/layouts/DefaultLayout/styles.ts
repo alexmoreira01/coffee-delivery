@@ -5,12 +5,18 @@ export const LayoutContainer = styled.div`
     padding: 0rem 10rem;
     margin: auto auto; */
     
-
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
 
     /* justify-content: center; */
     /* align-items: center; */
     /* align-content: center; */
+
+    .divContainer {
+        width: 100%;
+        max-width: 70rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
 
 `;

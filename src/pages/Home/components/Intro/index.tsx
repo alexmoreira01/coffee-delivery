@@ -11,7 +11,7 @@ export function Intro() {
 
   return (
     <ContainerIntro>
-      <Content>
+      <Content className="divContainer">
         <div>
           <BoxOne>
             <h1>Encontre o café perfeito para qualquer hora do dia</h1>

@@ -22,15 +22,12 @@ export const ContainerIntro = styled.section`
 
 export const Content = styled.div`
   /* Trocado do default Layout */
-  max-width: 90rem;
-  padding: 4rem 10rem;
-  margin: auto auto;
+  /* max-width: 90rem; */
+  padding: 4rem 0rem;
+  /* margin: auto auto; */
 
   display: flex;
   justify-content: space-between;
-  
-  /* padding: 4rem 0rem; */
-  /* margin-bottom: 5.8rem; */
 `;
 
 export const BoxOne = styled.div`

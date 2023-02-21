@@ -17,7 +17,7 @@ export function Coffees() {
   const [coffees, setCoffees] = useState<CoffeeProps[]>(coffeesJson);
 
   return (
-    <ContainerCoffees>
+    <ContainerCoffees className="divContainer">
       <h1>Nossos cafés</h1>
 
       <ListCoffes>
