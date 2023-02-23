@@ -1,3 +1,5 @@
+import { CoffeesCart } from "../CoffeesCart";
+import { CoffeesConfirmation } from "./components/CoffeesConfirmation";
 import { ContainerCoffeesSelected, ContainerDetails } from "./styles";
 
 export function CoffeesSelected(){
@@ -6,7 +8,12 @@ export function CoffeesSelected(){
       <h1>Cafés selecionados</h1>
 
       <ContainerDetails>
-        coffees
+
+        <CoffeesCart/>
+        <CoffeesCart/>
+
+        <CoffeesConfirmation/>
+
       </ContainerDetails>
     </ContainerCoffeesSelected>
   )
