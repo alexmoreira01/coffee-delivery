@@ -1,7 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
+interface ContainerCounterInputProps {
+  size?: "medium" | "small"; 
+}
 
-export const ContainerCounterInput = styled.div`
+export const ContainerCounterInput = styled.div<ContainerCounterInputProps>`
   flex: 1;
 
   display: flex;
@@ -27,6 +30,26 @@ export const ContainerCounterInput = styled.div`
       outline: none;
     }
   }
+
+  /* ${(props) => props.size === "medium" ? 
+  css`
+    padding: 0.5rem;
+  ` 
+  :  
+  css`
+    padding: 0.3rem 0.5rem;
+  ` 
+  } */
+
+  ${(props) => props.size === "medium" && 
+  css`
+    padding: 0.5rem;
+  ` }
+
+  ${(props) => props.size === "medium" && 
+  css`
+    padding: 0.3rem 0.5rem;
+  ` }
 `;
 
 export const ButtonIcon = styled.button.attrs({
