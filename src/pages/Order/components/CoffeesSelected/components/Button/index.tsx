@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
+import { NavLink } from "react-router-dom";
 import { ContainerButton } from "./styles";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -6,9 +7,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ text, ...props }: ButtonProps) {
-  return(
+  return (
     <ContainerButton {...props}>
-      {text}
+      <NavLink to="/cart/confirmed" title="Confirmação">
+        {text}
+      </NavLink>
     </ContainerButton>
   )
 }

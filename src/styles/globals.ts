@@ -42,4 +42,9 @@ export const GlobalStyle = createGlobalStyle`
         -moz-appearance: textfield;
     }
 
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
 `;
