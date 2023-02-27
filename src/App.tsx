@@ -1,5 +1,6 @@
 import { BrowserRouter } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
+import { CoffeeCartContextProvider } from "./contexts/useCoffees"
 import { Router } from "./Router"
 
 import { GlobalStyle } from "./styles/globals"
@@ -9,8 +10,11 @@ function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-        <Router/>
+        <CoffeeCartContextProvider>
+          <Router/>
+        </CoffeeCartContextProvider>
       </BrowserRouter>
+      
       <GlobalStyle/>
     </ThemeProvider>
   )
