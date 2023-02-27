@@ -3,18 +3,31 @@ import { ButtonIcon, ContainerCounterInput } from "./styles";
 
 interface CounterInputProps {
   size?: "medium" | "small"; 
+  quantity: number;
+  onAddCoffeeQuantity: () => void;
+  onRemoveCoffeeQuantity: () => void;
 }
 
-export function CounterInput({size = 'medium'}: CounterInputProps) {
+export function CounterInput({size = 'medium', quantity, onAddCoffeeQuantity, onRemoveCoffeeQuantity}: CounterInputProps) {
+
+  function handleAddCoffeeCart() {
+    onAddCoffeeQuantity()
+  }
+
+  function handleRemoveCoffeeCart() {
+    onRemoveCoffeeQuantity()
+  }
+
+
   return (
     <ContainerCounterInput size={size}>
-      <ButtonIcon>
+      <ButtonIcon onClick={handleRemoveCoffeeCart}>
         <Minus size={14} width="fill" />
       </ButtonIcon>
 
-      <input type="number" readOnly value={1} />
+      <input type="number" readOnly value={quantity} />
 
-      <ButtonIcon>
+      <ButtonIcon onClick={handleAddCoffeeCart}>
         <Plus size={14} width="fill" />
       </ButtonIcon>
     </ContainerCounterInput>

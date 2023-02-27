@@ -23,7 +23,7 @@ export function Coffees() {
       <ListCoffes>
         {coffees.map(coffee => (
           <CoffeeItem
-            coffee={coffee}
+            key={coffee.id} coffee={coffee}
           />
         ))}
       </ListCoffes>
