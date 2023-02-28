@@ -11,6 +11,9 @@ interface CoffeeCartContextData {
   cartCoffeesItems: CartCoffeeItem[];
 
   addCoffeesCart: (data: CartCoffeeItem) => void;
+  removeCoffeeCart: (coffeeId: number) => void;
+  addCoffeeQuantity: (coffeeId: number) => void;
+  removeCoffeeQuantity: (coffeeId: number) => void;
 }
 
 export const CoffeeCartContext = createContext({} as CoffeeCartContextData);
@@ -28,7 +31,7 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
     });
 
     // Criando a alteração para o estado sem se preocupar com a imutabilidade
-    const newCoffee = produce(cartCoffeesItems, (draft) => {
+    const newCoffeesCart = produce(cartCoffeesItems, (draft) => {
       if (coffeeAlreadyExists < 0) {
         draft.push(data)
         // setCartCoffeesItems(cartCoffeesItems)
@@ -37,7 +40,51 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
       }
     })
     
-    setCartCoffeesItems(newCoffee)
+    setCartCoffeesItems(newCoffeesCart)
+  }
+
+  function removeCoffeeCart(coffeeId: number){
+    const coffeeAlreadyExists = cartCoffeesItems.findIndex((coffee) => {
+      return coffee.id === coffeeId
+    });
+
+    if (coffeeAlreadyExists < 0) {
+      return;
+    }
+
+    const newCoffeesCart = produce(cartCoffeesItems, (draft) => {
+      draft.splice(coffeeAlreadyExists, 1);
+    })
+    
+    setCartCoffeesItems(newCoffeesCart)
+  }
+
+  function addCoffeeQuantity(coffeeId: number) {
+    const coffeeAlreadyExists = cartCoffeesItems.findIndex((coffee) => {
+      return coffee.id === coffeeId;
+    })
+
+    const newCoffeesCart = produce(cartCoffeesItems, (draft) => {
+      draft[coffeeAlreadyExists].quantity += 1;
+    })
+
+    setCartCoffeesItems(newCoffeesCart)
+  }
+
+  function removeCoffeeQuantity(coffeeId: number) {
+    const coffeeAlreadyExists = cartCoffeesItems.findIndex((coffee) => {
+      return coffee.id === coffeeId;
+    })
+
+    const newCoffeesCart = produce(cartCoffeesItems, (draft) => {
+      if(draft[coffeeAlreadyExists].quantity === 1) {
+        draft[coffeeAlreadyExists].quantity = 1
+      } else {
+        draft[coffeeAlreadyExists].quantity -= 1;
+      }
+    })
+
+    setCartCoffeesItems(newCoffeesCart)
   }
 
   
@@ -46,7 +93,10 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
       value={{
         cartCoffeesItems,
 
-        addCoffeesCart
+        addCoffeesCart,
+        removeCoffeeCart,
+        addCoffeeQuantity,
+        removeCoffeeQuantity
       }}
     >
       {children}

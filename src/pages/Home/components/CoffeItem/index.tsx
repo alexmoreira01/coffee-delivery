@@ -75,7 +75,7 @@ export function CoffeeItem({ coffee }: CoffeeProps) {
               onRemoveCoffeeQuantity={removeCoffeeQuantity}
             />
 
-            <button onClick={handleAddCoffeesCart}>
+            <button disabled={quantity === 0 ? true : false} onClick={handleAddCoffeesCart}>
               <ShoppingCart size={22} weight="fill" />
 
             </button>

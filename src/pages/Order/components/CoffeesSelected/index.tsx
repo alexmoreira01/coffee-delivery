@@ -18,13 +18,7 @@ export function CoffeesSelected(){
         {cartCoffeesItems.map(coffeeCart => (
           <CoffeesCart
             key={coffeeCart.id}
-            id={coffeeCart.id}
-            name={coffeeCart.name} 
-            img={coffeeCart.img} 
-            model={[]} 
-            description={""}          
-            price={coffeeCart.price} 
-            quantity={0} 
+            coffee={coffeeCart}
           />
 
           // <span key={`${coffee.id}-${model}`}>{model.toUpperCase()}</span> 
