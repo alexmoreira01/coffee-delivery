@@ -40,8 +40,7 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
     setCartCoffeesItems(newCoffee)
   }
 
-  console.log(cartCoffeesItems)
-
+  
   return (
     <CoffeeCartContext.Provider
       value={{

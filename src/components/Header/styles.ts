@@ -55,10 +55,35 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
 
   font-size: ${(props) => props.theme.textSizes["text-regular-s"]};
 
+  span {
+    display: flex;
+    width: 1.25rem;
+    height: 1.25rem;
+
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    border-radius: 50%;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    /* Metade do valor total da altura e largura */
+    top: calc(-1.25rem / 2);
+    right: calc(-1.25rem / 2);
+
+    color: ${(props) => props.theme.colors["white"]};
+  }
+
   background-color: ${(props) => props.theme.colors[`${props.variant}-light`]};
   color: ${(props) => props.variant === "purple" ? 
     props.theme.colors[`${props.variant}`] : 
     props.theme.colors[`${props.variant}-dark`]};
+
+    span {
+      background-color: ${(props) => props.theme.colors[`${props.variant}-dark`]};
+    }
 
   /* 
     Outros metodos
@@ -76,7 +101,6 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
     `}
   */
 `;
-
 
 // const BaseButton = styled.button`
 //   display: flex;
