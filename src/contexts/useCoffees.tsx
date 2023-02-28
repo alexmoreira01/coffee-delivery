@@ -86,7 +86,6 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
 
     setCartCoffeesItems(newCoffeesCart)
   }
-
   
   return (
     <CoffeeCartContext.Provider

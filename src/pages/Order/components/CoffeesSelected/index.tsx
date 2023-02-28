@@ -15,19 +15,25 @@ export function CoffeesSelected(){
 
       <ContainerDetails>
 
-        {cartCoffeesItems.map(coffeeCart => (
-          <CoffeesCart
-            key={coffeeCart.id}
-            coffee={coffeeCart}
-          />
 
-          // <span key={`${coffee.id}-${model}`}>{model.toUpperCase()}</span> 
-        ))}
+        {
+          cartCoffeesItems.length > 0 ? 
+          <>
 
-        {/* <CoffeesCart/> */}
-        {/* <CoffeesCart/> */}
+            {cartCoffeesItems.map(coffeeCart => (
+              <CoffeesCart
+                key={coffeeCart.id}
+                coffee={coffeeCart}
+              />
+            ))}
 
-        <CoffeesConfirmation/>
+            <CoffeesConfirmation/>
+          </> 
+          :
+          'Sem items no carrinho '
+        }
+
+        {/* <CoffeesConfirmation/> */}
 
       </ContainerDetails>
     </ContainerCoffeesSelected>
