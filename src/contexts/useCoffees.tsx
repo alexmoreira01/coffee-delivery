@@ -14,6 +14,8 @@ interface CoffeeCartContextData {
   removeCoffeeCart: (coffeeId: number) => void;
   addCoffeeQuantity: (coffeeId: number) => void;
   removeCoffeeQuantity: (coffeeId: number) => void;
+
+  totalPriceCart: number;
 }
 
 export const CoffeeCartContext = createContext({} as CoffeeCartContextData);
@@ -24,6 +26,19 @@ interface CoffeesContextProviderProps {
 
 export function CoffeeCartContextProvider({children}: CoffeesContextProviderProps) {
   const [cartCoffeesItems, setCartCoffeesItems] = useState<CartCoffeeItem[]>([])
+
+  // const totalPriceCart = cartCoffeesItems.reduce(
+  //   // Accumulator = 0 // currentValue igual ao objeto do array // 0 valor no qual começa
+  //   (accumulator, currentValue) => accumulator + (currentValue.price * currentValue.quantity), 0
+  // );
+
+  const totalPriceCart = cartCoffeesItems.reduce(
+    (accumulator, currentValue) => {
+      return accumulator + (currentValue.price * currentValue.quantity);
+    }, 0
+  );
+
+  console.log(totalPriceCart)
 
   function addCoffeesCart(data: CartCoffeeItem){
     const coffeeAlreadyExists = cartCoffeesItems.findIndex((coffee) => {
@@ -86,6 +101,16 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
 
     setCartCoffeesItems(newCoffeesCart)
   }
+
+  function calcTotalPrice() {
+    let totalPrice = 0;
+
+    cartCoffeesItems.map(coffeeItem => {
+      totalPrice = totalPrice + (coffeeItem.price * coffeeItem.quantity);
+    })
+
+    return totalPrice;
+  }
   
   return (
     <CoffeeCartContext.Provider
@@ -95,7 +120,9 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
         addCoffeesCart,
         removeCoffeeCart,
         addCoffeeQuantity,
-        removeCoffeeQuantity
+        removeCoffeeQuantity,
+
+        totalPriceCart
       }}
     >
       {children}
