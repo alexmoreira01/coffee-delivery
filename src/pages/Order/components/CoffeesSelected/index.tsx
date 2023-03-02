@@ -14,8 +14,7 @@ export function CoffeesSelected(){
       <h1>Cafés selecionados</h1>
 
       <ContainerDetails>
-
-
+        
         {
           cartCoffeesItems.length > 0 ? 
           <>

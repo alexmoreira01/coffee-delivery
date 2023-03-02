@@ -30,7 +30,7 @@ export function CoffeesConfirmation() {
         <span>R$ {formattedTotalWithDelivery}</span>
       </CoffeesConfirmationTotal>
 
-      <Button text="Confirmar Pedido" />
+      <Button text="Confirmar Pedido" type="submit" />
 
     </ContainerCoffeesConfirmation>
   )
