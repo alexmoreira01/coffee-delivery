@@ -1,5 +1,5 @@
 import produce from "immer";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { Coffee } from "../pages/Home/components/CoffeItem";
 
 export interface CartCoffeeItem extends Coffee {
@@ -25,7 +25,24 @@ interface CoffeesContextProviderProps {
 }
 
 export function CoffeeCartContextProvider({children}: CoffeesContextProviderProps) {
-  const [cartCoffeesItems, setCartCoffeesItems] = useState<CartCoffeeItem[]>([])
+  const [cartCoffeesItems, setCartCoffeesItems] = useState<CartCoffeeItem[]>(() => {
+    const storedStateAsJSON = localStorage.getItem(
+      "@coffee-delivery:coffees-state-1.0.0"
+    );
+
+    if(storedStateAsJSON) {
+      return JSON.parse(storedStateAsJSON);
+    } else {
+      return []
+    }
+
+  })
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(cartCoffeesItems);
+
+    localStorage.setItem("@coffee-delivery:coffees-state-1.0.0", stateJSON);
+  }, [cartCoffeesItems])
 
   // const totalPriceCart = cartCoffeesItems.reduce(
   //   // Accumulator = 0 // currentValue igual ao objeto do array // 0 valor no qual começa
@@ -37,8 +54,6 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
       return accumulator + (currentValue.price * currentValue.quantity);
     }, 0
   );
-
-  console.log(totalPriceCart)
 
   function addCoffeesCart(data: CartCoffeeItem){
     const coffeeAlreadyExists = cartCoffeesItems.findIndex((coffee) => {
