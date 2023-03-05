@@ -1,20 +1,26 @@
 import { forwardRef, InputHTMLAttributes } from "react";
-import { ContainerInput } from "./styles";
+import { ContainerInput, InputErrorMessage, InputStyled, RightText } from "./styles";
 
-// Tipando input => Se tem todas as tipagens de um input padrão
-type InputProps = InputHTMLAttributes<HTMLInputElement>
-
-// export function Input({ ...props }: InputProps) {
-//   return (
-//     <ContainerInput { ...props } />
-//   )
-// }
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  error?: string;
+  rightText?: string;
+}
 
 // Nao passa as propriedades do react hook form pelas props padroes
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  (props, ref) => {
+  ({ error, className, rightText, ...props }, ref) => {
+    
     return (
-      <ContainerInput {...props} ref={ref} />
+      // Container para exibir o erro
+      <InputErrorMessage className={className}>
+        
+        <ContainerInput hasError={!!error}>
+          <InputStyled { ...props } ref={ref} />
+          {rightText ? <RightText>{rightText}</RightText> : ''}
+        </ContainerInput>
+
+        {error ? <p> {error} </p> : ''}
+      </InputErrorMessage>
     )
   }
 )

@@ -7,15 +7,13 @@ export interface CartCoffeeItem extends Coffee {
 }
 
 interface CoffeeCartContextData {
-  // coffeesItems: CoffeesItems[];
   cartCoffeesItems: CartCoffeeItem[];
-
   addCoffeesCart: (data: CartCoffeeItem) => void;
   removeCoffeeCart: (coffeeId: number) => void;
   addCoffeeQuantity: (coffeeId: number) => void;
   removeCoffeeQuantity: (coffeeId: number) => void;
-
   totalPriceCart: number;
+  removeDeliveryLocalStorage: () => void;
 }
 
 export const CoffeeCartContext = createContext({} as CoffeeCartContextData);
@@ -35,7 +33,6 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
     } else {
       return []
     }
-
   })
 
   useEffect(() => {
@@ -126,18 +123,22 @@ export function CoffeeCartContextProvider({children}: CoffeesContextProviderProp
 
     return totalPrice;
   }
+
+  function removeDeliveryLocalStorage() {
+    setCartCoffeesItems([])
+    localStorage.setItem("@coffee-delivery:coffees-state-1.0.0", '');
+  }
   
   return (
     <CoffeeCartContext.Provider
       value={{
         cartCoffeesItems,
-
         addCoffeesCart,
         removeCoffeeCart,
         addCoffeeQuantity,
         removeCoffeeQuantity,
-
-        totalPriceCart
+        totalPriceCart,
+        removeDeliveryLocalStorage
       }}
     >
       {children}

@@ -5,32 +5,58 @@ import { ContainerOrder } from "./styles";
 import { useForm, FormProvider } from "react-hook-form";
 import * as zod from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CoffeeCartContext } from "../../contexts/useCoffees";
+
+enum PaymentMethods {
+  credit = "credit",
+  debit = "debit",
+  money = "money"
+}
 
 const newCartOrderFormValidationSchema = zod.object({
-  cep: zod.string(),
-  street: zod.string(),
-  numberStreet: zod.string(),
-  complement: zod.string(),
-  neighborhood: zod.string(),
-  city: zod.string(),
-  uf: zod.string()
+  cep: zod.string().min(8, "Informe o CEP do local!"),
+  street: zod.string().min(25, "Informe a Rua do local!"),
+  numberStreet: zod.string().min(2, "Informe o número!"),
+  complement: zod.string().max(255, "O complemento deve ter até 255 caracteres!"),
+  neighborhood: zod.string().min(5, "Informe o bairro!"),
+  city: zod.string().min(5, "Informe a cidade!"),
+  uf: zod.string().max(2, "Informe a UF!"),
+  payment: zod.nativeEnum(PaymentMethods, {
+    errorMap:() => {
+      return { message: "Informe o método de pagamento"}
+    }
+  })
 })
 
-type NewOrderFormData = zod.infer<typeof newCartOrderFormValidationSchema>;
+export type NewOrderFormData = zod.infer<typeof newCartOrderFormValidationSchema>;
 
 export function Order() {
+  const { removeDeliveryLocalStorage } = useContext(CoffeeCartContext);
 
   const cartOrderForm = useForm<NewOrderFormData>({
     resolver: zodResolver(newCartOrderFormValidationSchema),
-    // defaultValues: {
-
-    // }
+    defaultValues: {
+      cep: "",
+      street: "",
+      numberStreet: "",
+      complement: "",
+      neighborhood: "",
+      city: "",
+      uf: "",
+    }
   });
 
   const { handleSubmit, watch, reset } = cartOrderForm;
 
+  const navigate = useNavigate();
+
   function handleNewOrderForm(data: NewOrderFormData) {
-    console.log(data)
+    navigate("/cart/confirmed", {
+      state: data
+    })
+    removeDeliveryLocalStorage()
     reset();
   }
 

@@ -9,9 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export function Button({ text, ...props }: ButtonProps) {
   return (
     <ContainerButton {...props}>
-      <NavLink to="/cart/confirmed" title="Confirmação">
-        {text}
-      </NavLink>
+      {text}
     </ContainerButton>
   )
 }

@@ -5,9 +5,30 @@ import { Info } from "../../components/Infos";
 
 import { MapPin, Clock, CurrencyDollar } from "phosphor-react";
 import { useTheme } from "styled-components";
+import { useLocation, useNavigate } from "react-router-dom";
+import { NewOrderFormData } from "../Order";
+import { paymentMethods } from "../Order/components/OrderForm/components/PaymentOptions";
+import { useEffect } from "react";
+
+interface LocationProps {
+  state: NewOrderFormData 
+}
 
 export function OrderConfirmed() {
   const { colors } = useTheme();
+  const navigate = useNavigate();
+
+  const { state } = useLocation() as unknown as LocationProps;
+
+  useEffect(() => {
+    if(!state) {
+      navigate('/')
+    }
+  }, [])
+
+  if(!state) return <></>;
+
+  console.log(state)
 
   return(
     <ContainerOrderConfirmed className="divContainer">
@@ -22,8 +43,8 @@ export function OrderConfirmed() {
           <Info
             text={
               <p>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong> 
-                <br/> Farrapos - Porto Alegre, RS
+                Entrega em <strong>{state.street}, {state.numberStreet}</strong> 
+                <br/> {state.neighborhood} - {state.city}, {state.uf}
               </p>
             }
             icon={<MapPin width="fill" />}
@@ -47,7 +68,7 @@ export function OrderConfirmed() {
               <p>
                 Pagamento na entraga
                 <br/>
-                <strong>Cartão de Crédito</strong>
+                <strong>{paymentMethods[state.payment].label}</strong>
               </p>
             }
             icon={<CurrencyDollar width="fill" />}
